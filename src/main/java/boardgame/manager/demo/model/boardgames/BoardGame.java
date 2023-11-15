@@ -3,11 +3,9 @@ package boardgame.manager.demo.model.boardgames;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "games")
 public class BoardGame {
   @Id
   @GeneratedValue

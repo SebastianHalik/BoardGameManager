@@ -28,13 +28,13 @@ public class BoardGamesController {
   }
 
   @PostMapping
-  public ResponseEntity<BoardGame> createClient(@RequestBody BoardGame game) throws URISyntaxException {
+  public ResponseEntity<BoardGame> createBoardGame(@RequestBody BoardGame game) throws URISyntaxException {
     BoardGame savedBoardGame = repository.save(game);
     return ResponseEntity.created(new URI("/boardgames/" + savedBoardGame.getId())).body(savedBoardGame);
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<BoardGame> updateClient(@PathVariable Long id, @RequestBody BoardGame game) {
+  public ResponseEntity<BoardGame> updateBoardGame(@PathVariable Long id, @RequestBody BoardGame game) {
     BoardGame currentGame = repository.findById(id).orElseThrow(RuntimeException::new);
     currentGame.setName(game.getName());
     currentGame.setMinPlayers(game.getMinPlayers());
@@ -45,7 +45,7 @@ public class BoardGamesController {
   }
 
   @DeleteMapping("/{id}")
-  public ResponseEntity<BoardGame> deleteClient(@PathVariable Long id) {
+  public ResponseEntity<BoardGame> deleteBoardGame(@PathVariable Long id) {
     repository.deleteById(id);
     return ResponseEntity.ok().build();
   }
