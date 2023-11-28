@@ -2,6 +2,7 @@ import BoardGame from "./BoardGame";
 import {Button, Container, Table} from "reactstrap";
 import React from "react";
 import AppNavBar from "../visuals/AppNavBar";
+import {Link} from 'react-router-dom';
 
 function BoardGamesOwnedList({games, removeAction}) {
     return (
@@ -9,12 +10,13 @@ function BoardGamesOwnedList({games, removeAction}) {
             <AppNavBar/>
             <Container>
                 <div className="float-right">
-                    <Button color="success">Add board game</Button>
+                    <Button color="success" tag={Link} to="/games/new">Add board game</Button>
                 </div>
                 <h3>Board Games List</h3>
                 <Table className="mt-4">
                     <thead>
                     <tr>
+                        <th width="30%">ID</th>
                         <th width="30%">Name</th>
                         <th width="30%">Min Players</th>
                         <th width="40%">Max Players</th>
